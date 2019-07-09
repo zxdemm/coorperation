@@ -66,7 +66,17 @@ int isEmpty(LinkList* list) {
 	}
 	return 1;
 }
-
+void Clear(LinkList *list){
+	LNode *p,*s;
+	p = *list;
+	//s = p->next;
+	while(p){
+	s = p->next;
+	free(p);
+	p = s;	
+	}
+	
+}
 void InitList(LinkList* list) {
 	LNode* head = (LNode*)malloc(sizeof(struct LNode));
 	head->next = NULL;
