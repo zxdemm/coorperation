@@ -57,7 +57,7 @@ void Insert(LinkList* list, int n, int m) {
 	}
 	p->next = q->next;
 	q->next = p;
-
+}
 int isEmpty(LinkList* list) {
 	LNode* p;
 	p = *list;
@@ -82,7 +82,17 @@ void InitList(LinkList* list) {
 	head->next = NULL;
 	*list = head;
 }
-
+int GetIndex(LinkList *list, int n){
+	LNode *p;
+	p = *list;
+	int i = 0;
+	while(p != NULL){
+		if(p->data == n)return i;
+		p = p->next;
+		i++;
+	}
+	return -1;
+}
 void yuesefu(LinkList* list, int n) {
 	LNode* p, * q;
 	p = (*list)->next;
@@ -96,5 +106,23 @@ void yuesefu(LinkList* list, int n) {
 		free(q);
 	} while (p != (*list)->next);
 	printf("%d", p->data);
-}}
+}
+int main(){
+	LinkList list;
+	LinkList list2;
+	LinkList list3;
+	InitList(&list3);
+	int a[] = {1,2,8,15,17,54};
+	int b[] = {5,8,9,16,18,20,56};
+	Create(&list,a,sizeof(a)/sizeof(int));
+	yuesefu(&list,3);
+	//Create(&list2,b,sizeof(b)/sizeof(int));
+	//Clear(&list);
+	//Insert(&list,6,2);
+	//Delete(&list,2);
+	//printf("%d\n",GetIndex(&list,4));
+	//MergeList(&list,&list2,&list3);
+	//Print(&list3);
+	return 0;
+}
 
