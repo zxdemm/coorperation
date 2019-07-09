@@ -18,3 +18,4 @@ printf("%d ",p->next);
 p = p->next;
 }
 
+void Delete(LinkList)
